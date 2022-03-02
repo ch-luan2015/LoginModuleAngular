@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,7 +8,14 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
   faLock = faLock;
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+  constructor() {}
+  onSubmit(): void {
+    console.log(this.loginForm.value);
+  }
   ngOnInit(): void {}
 }
